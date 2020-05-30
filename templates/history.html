@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <table class="table table-stripe">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Bought / Sold</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                    <th>Transacted</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for stock in history %}
+                <tr>
+                    <td>{{ stock["symbol"] }}</td>
+                    <td>{{ stock["name"] }}</td>
+                    <td>{{ stock["is_bought"] }}</td>
+                    <td>{{ stock["quantity"] }}</td>
+                    <td>${{ stock["price"] }}</td>
+                    <td>${{ stock["total_price"] }}</td>
+                    <td>{{ stock["timestamp"] }}</td>
+                </tr>   
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </main>
+
+
+
+{% endblock %}
+

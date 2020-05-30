@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <table class="table table-stripe">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4"></td>
+                    <td>${{total_balance}}</td>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock["symbol"] }}</td>
+                    <td>{{ stock["name"] }}</td>
+                    <td>{{ stock["shares"] }}</td>
+                    <td>${{ stock["price"] }}</td>
+                    <td>${{ stock["TOTAL"] }}</td>
+                </tr>   
+                {% endfor %}
+
+                <tr>
+                    <td>Cash</td>
+                    <td colspan="3"></td>
+                    <td><b>${{cash}}</b></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </main>
+
+
+
+{% endblock %}
+
